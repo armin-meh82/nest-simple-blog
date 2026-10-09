@@ -2,7 +2,9 @@
 /dist
 /node_modules
 /build
+/prisma/migrations
 
+/test
 # TypeScript build cache
 *.tsbuildinfo
 
@@ -73,3 +75,4 @@ src/src/generated/
 "src/src/generated/" 
 src/prsima/migrations/
 "src/prsima/migrations/" 
+text
