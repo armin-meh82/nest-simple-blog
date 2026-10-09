@@ -63,4 +63,19 @@ export class UsersService {
       },
     });
   }
+async findById(id: number) {
+  return this.prisma.user.findUnique({
+    where: { id },
+  });
+}
+
+async updateRefreshTokenHash(
+  userId: number,
+  refreshTokenHash: string | null,
+) {
+  return this.prisma.user.update({
+    where: { id: userId },
+    data: { refreshTokenHash },
+  });
+}
 }
