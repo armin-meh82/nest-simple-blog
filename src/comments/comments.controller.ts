@@ -1,3 +1,4 @@
+
 import {
     Body,
     Controller,
@@ -8,6 +9,13 @@ import {
     UseGuards,
   } from '@nestjs/common';
   import type { Request } from 'express';
+  import {
+    ApiBearerAuth,
+    ApiOperation,
+    ApiParam,
+    ApiResponse,
+    ApiTags,
+  } from '@nestjs/swagger';
   
   import { CommentsService } from './comments.service.js';
   import { CreateCommentDto } from './dto/comment.dto.js';
@@ -17,6 +25,7 @@ import {
     user: { sub: number };
   };
   
+  @ApiTags('Comments')
   @Controller('posts/:postId/comments')
   export class CommentsController {
     constructor(
@@ -25,6 +34,27 @@ import {
   
     @Post()
     @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth('access-token')
+    @ApiOperation({
+      summary: 'Create a comment or a nested reply',
+    })
+    @ApiParam({
+      name: 'postId',
+      type: Number,
+      description: 'ID of the post to comment on',
+    })
+    @ApiResponse({
+      status: 201,
+      description: 'Comment created successfully',
+    })
+    @ApiResponse({
+      status: 401,
+      description: 'Missing or invalid access token',
+    })
+    @ApiResponse({
+      status: 404,
+      description: 'Post or parent comment not found',
+    })
     create(
       @Param('postId', ParseIntPipe) postId: number,
       @Req() request: AuthenticatedRequest,
@@ -37,3 +67,4 @@ import {
       );
     }
   }
+  
