@@ -1,4 +1,3 @@
-
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import {
@@ -31,4 +30,4 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard.js';
   controllers: [CommentsController],
   providers: [CommentsService, JwtAuthGuard],
 })
-export class CommentsModule {}
+export class CommentsModule { }

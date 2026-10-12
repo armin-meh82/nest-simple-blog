@@ -1,4 +1,3 @@
-
 import {
   Body,
   Controller,
@@ -41,7 +40,7 @@ type AuthenticatedRequest = Request & {
 export class PostsController {
   constructor(
     private readonly postsService: PostsService,
-  ) {}
+  ) { }
 
   @Post()
   @UseGuards(JwtAuthGuard, PostRateLimitGuard)

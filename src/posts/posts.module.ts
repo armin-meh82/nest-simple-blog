@@ -31,4 +31,4 @@ import { RedisModule } from '../redis/redis.module.js';
     PostRateLimitGuard,
   ],
 })
-export class PostsModule {}
+export class PostsModule { }

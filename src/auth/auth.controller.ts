@@ -1,4 +1,3 @@
-
 import {
   Body,
   Controller,
@@ -27,7 +26,7 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard.js';
 export class AuthController {
   constructor(
     private readonly authService: AuthService,
-  ) {}
+  ) { }
 
   @Post('register')
   @ApiOperation({ summary: 'Register a new user' })

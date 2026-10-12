@@ -17,7 +17,7 @@ export class PostsService {
     private readonly prisma: PrismaService,
     private readonly redis: RedisService,
     private readonly events: EventEmitter2,
-  ) {}
+  ) { }
 
   async create(userId: number, dto: CreatePostDto) {
     const post = await this.prisma.post.create({
@@ -285,5 +285,5 @@ export class PostsService {
       },
     };
   }
-  
+
 }

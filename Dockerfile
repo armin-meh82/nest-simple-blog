@@ -8,15 +8,13 @@ RUN npm ci
 
 COPY . .
 
-
-ENV DATABASE_URL="postgresql://postgres:postgres@db:5432/blog?schema=public"
-
 RUN npx prisma generate
 RUN npm run build
 
 FROM node:22-alpine AS runner
 
 WORKDIR /app
+
 ENV NODE_ENV=production
 
 COPY --from=builder /app/package*.json ./
