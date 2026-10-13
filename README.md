@@ -46,17 +46,17 @@ cd nest-simple-blog
 Create a `.env` file in the project root. Use the following template and replace the JWT secrets with strong random values.
 
 ```env
-DATABASE_URL=""
-
-JWT_SECRET=""
-JWT_REFRESH_SECRET=""
-JWT_EXPIRES_IN=""
+DATABASE_URL=
 
 POSTGRES_USERNAME=
 POSTGRES_PASSWORD=
-DB_HOST=
-SERVER_PORT=
 DB_NAME=
+
+JWT_SECRET=
+JWT_REFRESH_SECRET=
+JWT_EXPIRES_IN=
+
+SERVER_PORT=
 
 REDIS_URL=
 ```
@@ -99,7 +99,7 @@ docker compose down -v
 To run the application outside Docker, install dependencies and ensure PostgreSQL and Redis are running locally.
 
 ```bash
-npm ci
+npm i
 npx prisma generate
 npm run start:dev
 ```

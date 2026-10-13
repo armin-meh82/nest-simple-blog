@@ -16,7 +16,7 @@ async function bootstrap() {
   );
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Social Media Feed API | Nest Simple Blog')
+    .setTitle('Nest Simple Blog | Social Media Feed API')
     .setDescription(
       'REST API for authentication, posts, comments, feed pagination and user profiles.',
     )
@@ -38,7 +38,7 @@ async function bootstrap() {
     customSiteTitle: 'Social Media Feed API - Swagger',
   });
 
-  const port = process.env.PORT || 3000;
+  const port = process.env.SERVER_PORT || 3000;
   await app.listen(port);
 
   console.log(`API: http://localhost:${port}`);

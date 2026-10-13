@@ -76,5 +76,3 @@ src/src/generated/
 src/prsima/migrations/
 "src/prsima/migrations/" 
 text
-
-.dockerignore
